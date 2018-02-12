@@ -62,7 +62,7 @@
     <mkdir dir="lib" />
   </target>
 
-  <target name="compile-info" unless="build.dotnet">
+  <target name="compile-info">
     <echo>WARNING: Use -Dbuild.dotnet=1 to compile C#/.NET version</echo>
   </target>
 
@@ -70,8 +70,8 @@
     <javac srcdir="src/java"
            destdir="classes"
            classpathref="project.class.path"
-           source="1.4"
-           target="1.5"
+           source="1.8"
+           target="1.8"
            debug="on"
            deprecation="on" />
   	<copy todir="classes">
@@ -79,12 +79,11 @@
   	</copy>
   </target>
 
-  <target name="compile-csharp" if="build.dotnet">
-    <exec executable="dmcs" dir="src/csharp" failonerror="true">
-      <arg value="-target:library" />
-      <arg value="-out:${basedir}/lib/${build.name}-${build.version}.dll" />
-      <arg value="-debug" />
-      <arg value="-recurse:*.cs" />
+  <target name="compile-csharp">
+    <exec executable="dotnet" dir="src/csharp" failonerror="true">
+      <arg value="build" />
+      <arg value="-c" />
+      <arg value="release" />
     </exec>
   </target>
 
@@ -113,8 +112,8 @@
     <javac srcdir="test/src/java"
            destdir="classes"
            classpathref="project.class.path"
-           source="1.4"
-           target="1.5"
+           source="1.8"
+           target="1.8"
            debug="on"
            deprecation="on" />
     <junit haltonfailure="on">
@@ -129,21 +128,17 @@
      </junit>
   </target>
 
-  <target name="test-csharp" if="build.dotnet">
-    <exec executable="dmcs" dir="test/src/csharp" failonerror="true">
-      <arg value="-target:exe" />
-      <arg value="-out:${basedir}/lib/cstestall.exe" />
-      <arg value="-main:TestAll" />
-      <arg value="-reference:${basedir}/lib/${build.name}-${build.version}.dll" />
-      <arg value="-debug-" />
-      <arg value="-recurse:*.cs" />
+  <target name="test-csharp">
+    <exec executable="dotnet" dir="test/src/csharp" failonerror="true">
+      <arg value="build" />
+      <arg value="-c" />
+      <arg value="release" />
     </exec>
-    <echo level="info" message="running C# test cases with Mono..." />
-    <exec executable="mono"
-          failonerror="true">
-      <arg value="lib/cstestall.exe" />
+    <echo level="info" message="running C# test cases..." />
+    <exec executable="dotnet" dir="test/src/csharp" failonerror="true">
+      <arg value="run" />
     </exec>
-    <delete file="lib/cstestall.exe" />
+    <delete dir="lib/netcoreapp2.0" />
   </target>
 
 

@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Grammatica Run-Time Library</Description>
+    <Company>http://grammatica.percederberg.net/</Company>
+    <Product>Grammatica</Product>
+    <Copyright>2003-2015 Per Cederberg</Copyright>
+    <AssemblyVersion>1.6.1.0</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.6.1</Version>
+    <PackageReleaseNotes>Ported to .NET Standard 2 by Darren R. Starr
+Created a nuget package</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/cederberg/grammatica</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/cederberg/grammatica.git</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>Parser generator</PackageTags>
+    <PackageLicenseUrl>https://github.com/cederberg/grammatica/blob/master/LICENSE.md</PackageLicenseUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\lib\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\lib\</OutputPath>
+  </PropertyGroup>
+
+</Project>
+

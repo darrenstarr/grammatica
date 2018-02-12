@@ -4,3 +4,8 @@
 /lib/grammatica-*.jar
 /lib/grammatica-*.dll
 /lib/grammatica-*.dll.mdb
+/lib/netstandard2.0
+/lib/*.nupkg
+.vs
+/src/csharp/obj
+/test/src/csharp/obj
