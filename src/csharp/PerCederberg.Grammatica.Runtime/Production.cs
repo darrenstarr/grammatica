@@ -13,6 +13,7 @@
  */
 
 using System.Collections;
+using System.Collections.Generic;
 
 namespace PerCederberg.Grammatica.Runtime {
 
@@ -35,7 +36,7 @@ namespace PerCederberg.Grammatica.Runtime {
         /**
          * The child nodes.
          */
-        private ArrayList children;
+        public List<Node> Children { get; set; }
 
         /**
          * Creates a new production node.
@@ -44,7 +45,7 @@ namespace PerCederberg.Grammatica.Runtime {
          */
         public Production(ProductionPattern pattern) {
             this.pattern = pattern;
-            this.children = new ArrayList();
+            this.Children = new List<Node>();
         }
 
         /**
@@ -78,7 +79,7 @@ namespace PerCederberg.Grammatica.Runtime {
          */
         public override int Count {
             get {
-                return children.Count;
+                return Children.Count;
             }
         }
 
@@ -94,10 +95,10 @@ namespace PerCederberg.Grammatica.Runtime {
          */
         public override Node this[int index] {
             get {
-                if (index < 0 || index >= children.Count) {
+                if (index < 0 || index >= Children.Count) {
                     return null;
                 } else {
-                    return (Node) children[index];
+                    return (Node) Children[index];
                 }
             }
         }
@@ -111,7 +112,7 @@ namespace PerCederberg.Grammatica.Runtime {
         public void AddChild(Node child) {
             if (child != null) {
                 child.SetParent(this);
-                children.Add(child);
+                Children.Add(child);
             }
         }
 

@@ -14,6 +14,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 
 namespace PerCederberg.Grammatica.Runtime {
@@ -31,7 +32,7 @@ namespace PerCederberg.Grammatica.Runtime {
         /**
          * The list of errors found.
          */
-        private ArrayList errors = new ArrayList();
+        public List<ParseException> Errors { get; set; } = new List<ParseException>();
 
         /**
          * Creates a new empty parser log exception.
@@ -64,7 +65,7 @@ namespace PerCederberg.Grammatica.Runtime {
          */
         public int Count {
             get {
-                return errors.Count;
+                return Errors.Count;
             }
         }
 
@@ -93,7 +94,7 @@ namespace PerCederberg.Grammatica.Runtime {
          */
         public ParseException this[int index] {
             get {
-                return (ParseException) errors[index];
+                return (ParseException) Errors[index];
             }
         }
 
@@ -116,7 +117,7 @@ namespace PerCederberg.Grammatica.Runtime {
          * @param e              the parse error to add
          */
         public void AddError(ParseException e) {
-            errors.Add(e);
+            Errors.Add(e);
         }
 
         /**
