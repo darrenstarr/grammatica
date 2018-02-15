@@ -18,36 +18,33 @@ using System.IO;
 
 using PerCederberg.Grammatica.Runtime;
 
-namespace PerCederberg.Grammatica.Test {
+namespace PerCederberg.Grammatica.Test
+{
 
-    /**
-     * <remarks>A character stream tokenizer.</remarks>
-     */
-    internal class ArithmeticTokenizer : Tokenizer {
+    /// <remarks>A character stream tokenizer.</remarks>
+    internal class ArithmeticTokenizer : Tokenizer
+    {
 
-        /**
-         * <summary>Creates a new tokenizer for the specified input
-         * stream.</summary>
-         *
-         * <param name='input'>the input stream to read</param>
-         *
-         * <exception cref='ParserCreationException'>if the tokenizer
-         * couldn't be initialized correctly</exception>
-         */
+        /// <summary>Creates a new tokenizer for the specified input
+        /// stream.</summary>
+        ///
+        /// <param name='input'>the input stream to read</param>
+        ///
+        /// <exception cref='ParserCreationException'>if the tokenizer
+        /// couldn't be initialized correctly</exception>
         public ArithmeticTokenizer(TextReader input)
             : base(input, false) {
 
             CreatePatterns();
         }
 
-        /**
-         * <summary>Initializes the tokenizer by creating all the token
-         * patterns.</summary>
-         *
-         * <exception cref='ParserCreationException'>if the tokenizer
-         * couldn't be initialized correctly</exception>
-         */
-        private void CreatePatterns() {
+        /// <summary>Initializes the tokenizer by creating all the token
+        /// patterns.</summary>
+        ///
+        /// <exception cref='ParserCreationException'>if the tokenizer
+        /// couldn't be initialized correctly</exception>
+        private void CreatePatterns()
+        {
             TokenPattern  pattern;
 
             pattern = new TokenPattern((int) ArithmeticConstants.ADD,

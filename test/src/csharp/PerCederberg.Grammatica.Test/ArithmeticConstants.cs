@@ -14,13 +14,13 @@
  * Copyright (c) 2003-2015 Per Cederberg. All rights reserved.
  */
 
-namespace PerCederberg.Grammatica.Test {
+namespace PerCederberg.Grammatica.Test
+{
 
-    /**
-     * <remarks>An enumeration with token and production node
-     * constants.</remarks>
-     */
-    internal enum ArithmeticConstants {
+    /// <remarks>An enumeration with token and production node
+    /// constants.</remarks>
+    internal enum ArithmeticConstants
+    {
         ADD = 1001,
         SUB = 1002,
         MUL = 1003,

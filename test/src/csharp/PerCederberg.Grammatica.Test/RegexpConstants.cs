@@ -14,13 +14,13 @@
  * Copyright (c) 2003-2015 Per Cederberg. All rights reserved.
  */
 
-namespace PerCederberg.Grammatica.Test {
+namespace PerCederberg.Grammatica.Test
+{
 
-    /**
-     * <remarks>An enumeration with token and production node
-     * constants.</remarks>
-     */
-    internal enum RegexpConstants {
+    /// <remarks>An enumeration with token and production node
+    /// constants.</remarks>
+    internal enum RegexpConstants
+    {
         LEFT_PAREN = 1001,
         RIGHT_PAREN = 1002,
         LEFT_BRACKET = 1003,
