@@ -115,9 +115,7 @@ public class CSharpComment extends CodeElement {
         int     pos;
 
         // Comment head
-        if (type == DOCUMENTATION) {
-            out.println(indentStr + "/**");
-        } else if (type == BLOCK) {
+        if (type == BLOCK) {
             out.println(indentStr + "/*");
         }
 
@@ -131,7 +129,7 @@ public class CSharpComment extends CodeElement {
         printLine(out, indentStr, restLines);
 
         // Comment tail
-        if (type == DOCUMENTATION || type == BLOCK) {
+        if (type == BLOCK) {
             out.println(indentStr + " */");
         }
     }
@@ -144,9 +142,9 @@ public class CSharpComment extends CodeElement {
      * @param line           the comment line to print
      */
     private void printLine(PrintWriter out, String indent, String line) {
-        if (type == DOCUMENTATION || type == BLOCK) {
+        if (type == BLOCK) {
             out.print(indent + " *");
-        } else if (type == DOCUMENTATION_SINGLE) {
+        } else if (type == DOCUMENTATION || type == DOCUMENTATION_SINGLE) {
             out.print(indent + "///");
         } else {
             out.print(indent + "//");

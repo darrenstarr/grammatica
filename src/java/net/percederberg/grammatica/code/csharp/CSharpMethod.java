@@ -271,7 +271,9 @@ public class CSharpMethod extends CodeElement {
 
         // Handle code
         if (canPrintCode()) {
-            res.append(" {\n");
+            res.append("\n");
+            res.append(indentStr);
+            res.append("{\n");
             for (int i = 0; i < code.size(); i++) {
                 if (code.get(i).toString().length() > 0) {
                     res.append(codeIndentStr);

@@ -162,17 +162,20 @@ class CSharpAnalyzerFile {
 
         // Add enter method
         enter.addComment(new CSharpComment(ENTER_COMMENT));
-        enter.addCode("switch (node.Id) {");
+        enter.addCode("switch (node.Id)");
+        enter.addCode("{");
         cls.addMethod(enter);
 
         // Add exit method
         exit.addComment(new CSharpComment(EXIT_COMMENT));
-        exit.addCode("switch (node.Id) {");
+        exit.addCode("switch (node.Id)");
+        exit.addCode("{");
         cls.addMethod(exit);
 
         // Add child method
         child.addComment(new CSharpComment(CHILD_COMMENT));
-        child.addCode("switch (node.Id) {");
+        child.addCode("switch (node.Id)");
+        child.addCode("{");
         cls.addMethod(child);
     }
 
@@ -229,7 +232,7 @@ class CSharpAnalyzerFile {
      * @param type           the node type
      */
     private void addEnterCase(String constant, String name, String type) {
-        enter.addCode("case (int) " + constant + ":");
+        enter.addCode("case (int)" + constant + ":");
         enter.addCode("    Enter" + name + "((" + type + ") node);");
         enter.addCode("    break;");
     }

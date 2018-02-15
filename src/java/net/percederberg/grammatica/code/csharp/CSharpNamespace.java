@@ -80,7 +80,8 @@ public class CSharpNamespace extends CodeElementContainer {
     public void print(PrintWriter out, CodeStyle style, int indent) {
         String  indentStr = style.getIndent(indent);
 
-        out.println(indentStr + "namespace " + name + " {");
+        out.println(indentStr + "namespace " + name);
+        out.println(indentStr + "{");
         out.println();
         printContents(out, style, indent + 1);
         out.println(indentStr + "}");

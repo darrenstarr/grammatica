@@ -137,8 +137,8 @@ abstract class CSharpType extends CodeElementContainer {
             }
             buf.append(extendTypes[i]);
         }
-        buf.append(" {");
         out.println(buf.toString());
+        out.println(indentStr + "{");
 
         // Print type contents
         printContents(out, style, indent + 1);
